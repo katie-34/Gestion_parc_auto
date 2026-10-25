@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.miageholding.controllers.responsablelogistique.AccueilRLController" stylesheets="@../../css/theme.css, @../../css/main.css">
+
+   <VBox spacing="20" alignment="TOP_CENTER" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
+
+      <HBox spacing="30" alignment="CENTER">
+         <VBox alignment="CENTER" styleClass="card-kpi">
+            <Label fx:id="labelDisponibles" text="0" styleClass="kpi-value"/>
+            <Label text="Véhicules Disponibles" styleClass="kpi-title"/>
+         </VBox>
+
+         <VBox alignment="CENTER" styleClass="card-kpi">
+            <Label fx:id="labelAssures" text="0" styleClass="kpi-value"/>
+            <Label text="Véhicules Assurés" styleClass="kpi-title"/>
+         </VBox>
+
+         <VBox alignment="CENTER" styleClass="card-kpi">
+            <Label fx:id="labelAffectes" text="0" styleClass="kpi-value"/>
+            <Label text="Véhicules Attribués" styleClass="kpi-title"/>
+         </VBox>
+      </HBox>
+
+      <Text fx:id="titleExpiringAssurances" text="🚨 Assurances expirant bientôt" styleClass="section-title"/>
+      <TableView fx:id="assuranceTable" prefHeight="150">
+         <columns>
+            <TableColumn fx:id="colAgence" text="Agence"/>
+            <TableColumn fx:id="colImmatriculationAssurance" text="Immatriculation"/>
+            <TableColumn fx:id="colDateFin" text="Date Fin"/>
+         </columns>
+      </TableView>
+
+      <Text fx:id="titleRecentVehicules" text="🚗 Véhicules ajoutés récemment" styleClass="section-title"/>
+      <TableView fx:id="vehiculeTable" prefHeight="150">
+         <columns>
+            <TableColumn fx:id="colMarque" text="Marque"/>
+            <TableColumn fx:id="colModele" text="Modèle"/>
+            <TableColumn fx:id="colImmatriculationRecent" text="Immatriculation"/>
+         </columns>
+      </TableView>
+
+      <Text text="📋 Véhicules affectés à des missions" styleClass="section-title"/>
+      <TableView fx:id="vehiculeAffecteTable" prefHeight="150">
+         <columns>
+            <TableColumn fx:id="colMissionVehicule" text="Immatriculation"/>
+            <TableColumn fx:id="colMissionLibelle" text="Mission"/>
+            <TableColumn fx:id="colMissionDebut" text="Début"/>
+            <TableColumn fx:id="colMissionFin" text="Fin"/>
+         </columns>
+      </TableView>
+
+   </VBox>
+
+</AnchorPane>

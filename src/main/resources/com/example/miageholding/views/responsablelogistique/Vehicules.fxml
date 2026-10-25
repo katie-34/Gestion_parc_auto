@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.miageholding.controllers.responsablelogistique.VehiculeController"
+            stylesheets="@../../css/theme.css, @../../css/main.css"
+            prefWidth="1100" prefHeight="700">
+
+   <children>
+      <VBox spacing="20" alignment="TOP_CENTER"
+            AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+            AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+            styleClass="page">
+
+         <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+         </padding>
+
+         <Label text="🚗 Gestion des Véhicules" styleClass="title-page"/>
+
+         <!-- FORMULAIRE -->
+         <TitledPane text="Informations Véhicule" expanded="true">
+            <content>
+               <GridPane hgap="20" vgap="15" styleClass="form-section">
+                  <columnConstraints>
+                     <ColumnConstraints percentWidth="20"/>
+                     <ColumnConstraints percentWidth="30"/>
+                     <ColumnConstraints percentWidth="20"/>
+                     <ColumnConstraints percentWidth="30"/>
+                  </columnConstraints>
+
+                  <Label text="ID Véhicule :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                  <TextField fx:id="textIdVehicule" promptText="101" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                  <Label text="État :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                  <ComboBox fx:id="comboEtatVoiture" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                  <Label text="Numéro Châssis :" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                  <TextField fx:id="textNumeroChassi" promptText="CH12345XYZ" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                  <Label text="Immatriculation :" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                  <TextField fx:id="textImmatriculation" promptText="AB-123-CD" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                  <Label text="Marque :" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                  <TextField fx:id="textMarque" promptText="Toyota" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                  <Label text="Modèle :" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                  <TextField fx:id="textModele" promptText="Corolla" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                  <Label text="Places :" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                  <TextField fx:id="textNbPlaces" promptText="5" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+                  <Label text="Énergie :" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                  <TextField fx:id="textEnergie" promptText="Essence" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+
+                  <Label text="Date acquisition :" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                  <DatePicker fx:id="dateAcquisition" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+                  <Label text="Date amortissement :" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                  <DatePicker fx:id="dateAmortissement" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+
+                  <Label text="Date mise en service :" GridPane.rowIndex="3" GridPane.columnIndex="2"/>
+                  <DatePicker fx:id="dateMiseEnService" GridPane.rowIndex="3" GridPane.columnIndex="3"/>
+
+                  <Label text="Puissance :" GridPane.rowIndex="4" GridPane.columnIndex="2"/>
+                  <TextField fx:id="textPuissance" promptText="90" GridPane.rowIndex="4" GridPane.columnIndex="3"/>
+
+                  <Label text="Couleur :" GridPane.rowIndex="5" GridPane.columnIndex="2"/>
+                  <TextField fx:id="textCouleur" promptText="Rouge" GridPane.rowIndex="5" GridPane.columnIndex="3"/>
+
+                  <Label text="Prix (FCFA) :" GridPane.rowIndex="6" GridPane.columnIndex="2"/>
+                  <TextField fx:id="textPrixVehicule" promptText="12000" GridPane.rowIndex="6" GridPane.columnIndex="3"/>
+
+                  <Label text="Date état :" GridPane.rowIndex="7" GridPane.columnIndex="2"/>
+                  <DatePicker fx:id="dateEtat" GridPane.rowIndex="7" GridPane.columnIndex="3"/>
+               </GridPane>
+            </content>
+         </TitledPane>
+
+         <!-- RECHERCHE -->
+         <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="🔍 Rechercher :" styleClass="label"/>
+            <TextField fx:id="textRecherche" promptText="Filtrer par marque ou modèle" prefWidth="300"/>
+         </HBox>
+
+         <!-- TABLE -->
+         <TableView fx:id="tableVehicule" VBox.vgrow="ALWAYS" styleClass="rounded-table">
+            <columns>
+               <TableColumn fx:id="colIdVehicule" text="ID" prefWidth="80"/>
+               <TableColumn fx:id="colMarque" text="Marque" prefWidth="150"/>
+               <TableColumn fx:id="colModele" text="Modèle" prefWidth="150"/>
+               <TableColumn fx:id="colImmatriculation" text="Immatriculation" prefWidth="150"/>
+               <TableColumn fx:id="colEtat" text="État" prefWidth="150"/>
+            </columns>
+         </TableView>
+
+         <!-- ACTIONS -->
+         <HBox spacing="20" alignment="CENTER">
+            <Button fx:id="btnAjouter" text="Ajouter" onAction="#handleAjouterVehicule" styleClass="btn-success"/>
+            <Button fx:id="btnVoirDetails" text="Voir détails" onAction="#handleVoirDetails" styleClass="btn-primary"/>
+            <Button fx:id="btnModifier" text="Modifier" onAction="#handleModifierVehicule" styleClass="btn-warning"/>
+            <Button fx:id="btnSupprimer" text="Supprimer" onAction="#handleSupprimerVehicule" styleClass="btn-danger"/>
+         </HBox>
+      </VBox>
+   </children>
+</AnchorPane>

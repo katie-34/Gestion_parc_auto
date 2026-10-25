@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.miageholding.controllers.administrateur.ResponsableLogistiqueController"
+            stylesheets="@../../css/theme.css, @../../css/main.css">
+
+    <top>
+        <VBox spacing="15">
+            <padding>
+                <Insets top="25" right="30" bottom="20" left="30"/>
+            </padding>
+
+            <Label text="Responsable Logistique"
+                   styleClass="title-page"/>
+
+            <GridPane hgap="15" vgap="15">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="30"/>
+                    <ColumnConstraints percentWidth="70"/>
+                </columnConstraints>
+
+                <Label text="Nom d'utilisateur:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="textNomUtilisateur" GridPane.rowIndex="0" GridPane.columnIndex="1"  styleClass="text-field"/>
+
+                <HBox spacing="10" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="2">
+                    <StackPane>
+                        <PasswordField fx:id="passwordField" promptText="••••••" />
+                        <TextField fx:id="visiblePasswordField" promptText="Mot de passe visible" visible="false" managed="false"/>
+                    </StackPane>
+                    <CheckBox fx:id="toggleVisibility" text="Afficher" onAction="#togglePasswordVisibility"/>
+                </HBox>
+
+            </GridPane>
+
+            <HBox spacing="15" alignment="CENTER">
+                <Button text="Ajouter" onAction="#handleAjouter" styleClass="btn-success"/>
+                <Button text="Modifier" onAction="#handleModifier" styleClass="btn-warning"/>
+                <Button text="Supprimer" onAction="#handleSupprimer" styleClass="btn-danger"/>
+                <Button text="Vider" onAction="#handleClearForm" styleClass="btn-neutral"/>
+            </HBox>
+        </VBox>
+    </top>
+
+</BorderPane>

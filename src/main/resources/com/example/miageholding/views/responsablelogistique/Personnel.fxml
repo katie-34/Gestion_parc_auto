@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.miageholding.controllers.responsablelogistique.PersonnelController"
+            stylesheets="@../../css/theme.css, @../../css/main.css">
+
+    <!-- Formulaire -->
+    <top>
+        <VBox spacing="20" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="20" right="20" bottom="10" left="20"/>
+            </padding>
+
+            <Label text="👥 Gestion du Personnel" styleClass="title-page"/>
+
+            <GridPane hgap="20" vgap="15">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="25"/>
+                    <ColumnConstraints percentWidth="25"/>
+                    <ColumnConstraints percentWidth="25"/>
+                    <ColumnConstraints percentWidth="25"/>
+                </columnConstraints>
+
+                <Label text="🆔 ID Personnel :" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <TextField fx:id="textId" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                <Label text="👤 Nom :" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                <TextField fx:id="textNom" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+                <Label text="👤 Prénom :" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <TextField fx:id="textPrenom" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="📞 Contact :" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                <TextField fx:id="textContact" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+                <Label text="🚗 Véhicule :" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <ComboBox fx:id="comboVehicule" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                <Label text="🎓 Fonction :" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                <ComboBox fx:id="comboFonction" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+
+                <Label text="🏢 Service :" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <ComboBox fx:id="comboService" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                <Label text="📅 Date Attribution :" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+                <DatePicker fx:id="dateAttribution" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+            </GridPane>
+
+            <!-- Boutons -->
+            <HBox spacing="15" alignment="CENTER">
+                <Button fx:id="btnAjouter" text="Ajouter" onAction="#handleAjouter" styleClass="btn-success"/>
+                <Button fx:id="btnModifier" text="Modifier" onAction="#handleModifier" styleClass="btn-warning"/>
+                <Button fx:id="btnSupprimer" text="Supprimer" onAction="#handleSupprimer" styleClass="btn-danger"/>
+                <Button fx:id="btnClear" text="Vider" onAction="#handleClear" styleClass="btn-gray"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Recherche et tableau -->
+    <center>
+        <VBox spacing="15">
+            <padding>
+                <Insets top="10" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="🔍 Recherche :" styleClass="label"/>
+                <TextField fx:id="textRecherche" promptText="Nom, fonction, service..." prefWidth="300"/>
+            </HBox>
+
+            <TableView fx:id="tablePersonnel" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId" text="🆔 ID" prefWidth="60"/>
+                    <TableColumn fx:id="colNom" text="👤 Nom" prefWidth="120"/>
+                    <TableColumn fx:id="colPrenom" text="👤 Prénom" prefWidth="120"/>
+                    <TableColumn fx:id="colContact" text="📞 Contact" prefWidth="100"/>
+                    <TableColumn fx:id="colVehicule" text="🚗 Véhicule" prefWidth="100"/>
+                    <TableColumn fx:id="colFonction" text="🎓 Fonction" prefWidth="120"/>
+                    <TableColumn fx:id="colService" text="🏢 Service" prefWidth="120"/>
+                    <TableColumn fx:id="colDate" text="📅 Attribution" prefWidth="130"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

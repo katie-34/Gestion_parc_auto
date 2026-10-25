@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            xmlns="http://javafx.com/javafx"
+            fx:controller="com.example.miageholding.controllers.administrateur.AccueilAdminController" stylesheets="@../../css/theme.css, @../../css/main.css"
+            prefWidth="1000" prefHeight="700">
+
+    <children>
+        <VBox spacing="20" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
+
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="Tableau de Bord - Administrateur"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+            <!-- Cartes statistiques -->
+            <HBox spacing="30" alignment="CENTER">
+                <VBox alignment="CENTER" style="-fx-background-color: #4CAF50; -fx-background-radius: 10; -fx-padding: 20;">
+                    <Label text="Services" style="-fx-text-fill: white; -fx-font-size: 16px;"/>
+                    <Label fx:id="labelServices" text="0" style="-fx-text-fill: white; -fx-font-size: 28px; -fx-font-weight: bold;"/>
+                </VBox>
+
+                <VBox alignment="CENTER" style="-fx-background-color: #2196F3; -fx-background-radius: 10; -fx-padding: 20;">
+                    <Label text="Personnels" style="-fx-text-fill: white; -fx-font-size: 16px;"/>
+                    <Label fx:id="labelPersonnels" text="0" style="-fx-text-fill: white; -fx-font-size: 28px; -fx-font-weight: bold;"/>
+                </VBox>
+
+                <VBox alignment="CENTER" style="-fx-background-color: #FF9800; -fx-background-radius: 10; -fx-padding: 20;">
+                    <Label text="Fonctions par Service" style="-fx-text-fill: white; -fx-font-size: 16px;"/>
+                    <Label fx:id="labelFonctionsParService" text="0" style="-fx-text-fill: white; -fx-font-size: 28px; -fx-font-weight: bold;"/>
+                </VBox>
+            </HBox>
+
+            <!-- Liste des services -->
+            <Label text="Liste des Services" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <TableView fx:id="tableServices" prefHeight="200">
+                <columns>
+                    <TableColumn fx:id="colIdService" text="ID" prefWidth="100"/>
+                    <TableColumn fx:id="colLibelleService" text="Libellé" prefWidth="250"/>
+                    <TableColumn fx:id="colLocalisationService" text="Localisation" prefWidth="250"/>
+                </columns>
+            </TableView>
+
+            <!-- Liste des personnels par fonction -->
+            <Label text="Personnels et Fonctions par Service" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+            <TableView fx:id="tablePersonnelsFonctions" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="colNomPersonnel" text="Nom" prefWidth="150"/>
+                    <TableColumn fx:id="colPrenomPersonnel" text="Prénom" prefWidth="150"/>
+                    <TableColumn fx:id="colFonctionPersonnel" text="Fonction" prefWidth="200"/>
+                    <TableColumn fx:id="colServicePersonnel" text="Service" prefWidth="200"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </children>
+</AnchorPane>

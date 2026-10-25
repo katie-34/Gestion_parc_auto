@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.miageholding.controllers.responsablelogistique.EntretienController"
+            stylesheets="@../../css/theme.css, @../../css/main.css">
+
+   <top>
+      <VBox spacing="20" alignment="TOP_CENTER">
+         <padding>
+            <Insets top="20" right="20" bottom="10" left="20"/>
+         </padding>
+
+         <Label text="🧰 Gestion des Entretiens"
+                styleClass="title-page"/>
+
+         <GridPane hgap="25" vgap="15">
+            <columnConstraints>
+               <ColumnConstraints percentWidth="25"/>
+               <ColumnConstraints percentWidth="25"/>
+               <ColumnConstraints percentWidth="25"/>
+               <ColumnConstraints percentWidth="25"/>
+            </columnConstraints>
+
+            <Label text="🆔 ID Entretien :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="textIdEntretien" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="🚗 Immatriculation :" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+            <TextField fx:id="textImmatriculation" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+            <Label text="🛠️ Motif :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="textMotif" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="📍 Lieu :" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+            <TextField fx:id="textLieu" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+            <Label text="📅 Date Entrée :" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <DatePicker fx:id="dateEntree" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="📅 Date Sortie :" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+            <DatePicker fx:id="dateSortie" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+
+            <Label text="💸 Coût (FCFA) :" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextField fx:id="textCout" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Label text="📝 Observation :" GridPane.rowIndex="3" GridPane.columnIndex="2"/>
+            <TextField fx:id="textObservation" GridPane.rowIndex="3" GridPane.columnIndex="3"/>
+         </GridPane>
+
+         <!-- Boutons d'action -->
+         <HBox spacing="15" alignment="CENTER">
+            <Button text="Ajouter" fx:id="btnAjouter" onAction="#handleAjouterEntretien" styleClass="btn-success"/>
+            <Button text="Modifier" fx:id="btnModifier" onAction="#handleModifierEntretien" styleClass="btn-warning"/>
+            <Button text="Supprimer" fx:id="btnSupprimer" onAction="#handleSupprimerEntretien" styleClass="btn-danger"/>
+            <Button text="Vider" fx:id="btnClearForm" onAction="#handleClearForm" styleClass="btn-gray"/>
+         </HBox>
+      </VBox>
+   </top>
+
+   <center>
+      <VBox spacing="15">
+         <padding>
+            <Insets top="10" right="20" bottom="20" left="20"/>
+         </padding>
+
+         <!-- Recherche -->
+         <HBox spacing="10" alignment="CENTER_LEFT">
+            <Label text="🔍 Rechercher :" styleClass="label"/>
+            <TextField fx:id="textRecherche" promptText="Motif, immatriculation ou lieu..." prefWidth="300"/>
+         </HBox>
+
+         <!-- Tableau des entretiens -->
+         <TableView fx:id="tableEntretien" VBox.vgrow="ALWAYS">
+            <columns>
+               <TableColumn fx:id="colIdEntretien" text="🆔 ID" prefWidth="80"/>
+               <TableColumn fx:id="colVehicule" text="🚗 Immatriculation" prefWidth="150"/>
+               <TableColumn fx:id="colMotif" text="🛠️ Motif" prefWidth="150"/>
+               <TableColumn fx:id="colDateEntree" text="📅 Entrée" prefWidth="120"/>
+               <TableColumn fx:id="colDateSortie" text="📅 Sortie" prefWidth="120"/>
+               <TableColumn fx:id="colLieu" text="📍 Lieu" prefWidth="150"/>
+            </columns>
+         </TableView>
+      </VBox>
+   </center>
+</BorderPane>

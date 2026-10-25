@@ -1,0 +1,84 @@
+
+/* === THEMING PRINCIPAL === */
+.root {
+    -fx-font-family: 'Segoe UI', sans-serif;
+}
+
+/* === Sidebar === */
+.sidebar {
+    -fx-background-color: #3F51B5;
+}
+
+/* === Titres de menu === */
+.menu-title {
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 0 10 0;
+}
+
+/* === Boutons de navigation === */
+/* Boutons du menu latéral */
+.btnD1 {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12;
+    -fx-padding: 10 25;
+    -fx-alignment: CENTER_LEFT;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0.1, 0, 1);
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+/* Effet au survol */
+.btnD1:hover {
+    -fx-background-color: #80CBC4; /* Bleu clair */
+    -fx-text-fill: #1c1c1c;
+    -fx-cursor: hand;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+/* Bouton actif (si utilisé dynamiquement) */
+.btnD1.active {
+    -fx-background-color: white;
+    -fx-text-fill: #3F51B5;
+}
+
+
+/* === Bouton déconnexion === */
+.btnLogout {
+    -fx-background-color: #FF5722;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 8 20 8 20;
+}
+
+/* === KPI Cards === */
+.kpi-card {
+    -fx-background-color: #80CBC4;
+    -fx-background-radius: 10;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 5, 0, 0, 3);
+}
+
+.kpi-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1C1C1C;
+}
+
+.kpi-value {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3F51B5;
+}
+
+/* Boutons colorés */
+.btn-success { -fx-background-color: #4CAF50; -fx-text-fill: white; }
+.btn-primary { -fx-background-color: #42A5F5; -fx-text-fill: white; }
+.btn-warning { -fx-background-color: #FFC107; -fx-text-fill: white; }
+.btn-danger  { -fx-background-color: #E53935; -fx-text-fill: white; }

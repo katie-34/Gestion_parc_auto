@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+           prefHeight="600.0" prefWidth="400.0"
+           xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.miageholding.controllers.auth.LoginController">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="400.0" styleClass="panel" stylesheets="@../../css/auth/style.css">
+         <children>
+
+            <!-- Logo -->
+            <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="140.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/logo_miage_holding.png" />
+               </image>
+            </ImageView>
+
+            <!-- Bienvenue -->
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="180.0"
+                   prefHeight="30.0" prefWidth="150.0" styleClass="welcome-title" text="BIENVENUE !" />
+
+            <!-- Icône Utilisateur -->
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="55.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/user.png" />
+               </image>
+            </ImageView>
+
+            <!-- Identifiant -->
+            <TextField fx:id="identifiant" layoutX="95.0" layoutY="255.0" prefHeight="40.0" prefWidth="230.0"
+                       promptText="IDENTIFIANT" />
+
+            <!-- Icône Mot de passe -->
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="55.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/unlock.png" />
+               </image>
+            </ImageView>
+
+            <!-- Mot de passe -->
+            <PasswordField fx:id="motdepasse" layoutX="95.0" layoutY="335.0" prefHeight="40.0" prefWidth="230.0"
+                           promptText="MOT DE PASSE" />
+
+            <!-- Erreur -->
+            <Label fx:id="Erreur" layoutX="50.0" layoutY="410.0" prefWidth="300.0"
+                   text="" style="-fx-text-fill: red; -fx-font-size: 12px;" visible="false" />
+
+            <!-- Bouton Connexion -->
+            <Button fx:id="connexion" layoutX="125.0" layoutY="450.0" mnemonicParsing="false"
+                    prefHeight="40.0" prefWidth="150.0" styleClass="btnConnexion"
+                    stylesheets="@../../css/auth/style.css"
+                    onAction="#Seconnecter" text="SE CONNECTER" />
+
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

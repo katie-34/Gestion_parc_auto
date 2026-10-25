@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.miageholding.controllers.administrateur.FonctionController"
+            stylesheets="@../../css/theme.css, @../../css/main.css">
+
+    <!-- Haut de page -->
+    <top>
+        <VBox spacing="15" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="20" right="20" bottom="10" left="20"/>
+            </padding>
+
+            <Label text="Gestion des Fonctions" styleClass="title-page"/>
+
+            <GridPane hgap="20" vgap="15">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="25"/>
+                    <ColumnConstraints percentWidth="25"/>
+                    <ColumnConstraints percentWidth="25"/>
+                    <ColumnConstraints percentWidth="25"/>
+                </columnConstraints>
+
+                <Label text="ID Fonction :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="textIdFonction" GridPane.rowIndex="0" GridPane.columnIndex="1" promptText="ex: 01" styleClass="text-field"/>
+
+                <Label text="Libellé Fonction :" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <TextField fx:id="textLibelle" GridPane.rowIndex="0" GridPane.columnIndex="3" promptText="ex: Responsable RH" styleClass="text-field"/>
+            </GridPane>
+
+            <HBox spacing="15" alignment="CENTER">
+                <Button text="Ajouter" onAction="#handleAjouter" styleClass="btn-success"/>
+                <Button text="Modifier" onAction="#handleModifier" styleClass="btn-warning"/>
+                <Button text="Supprimer" onAction="#handleSupprimer"  styleClass="btn-danger"/>
+                <Button text="Vider" onAction="#handleClearForm" styleClass="btn-neutral"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Centre : Recherche + Table -->
+    <center>
+        <VBox spacing="15">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="🔍 Recherche :" />
+                <TextField fx:id="textRecherche" promptText="Filtrer par ID ou Libellé..." prefWidth="300" styleClass="text-field-search"/>
+            </HBox>
+
+            <TableView fx:id="tableFonction" prefHeight="400" styleClass="table-view">
+                <columns>
+                    <TableColumn fx:id="colIdFonction" text="ID Fonction" prefWidth="150"/>
+                    <TableColumn fx:id="colLibelle" text="Libellé" prefWidth="400"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.ProgressIndicator?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.miageholding.controllers.SplashScreenController"
+            prefWidth="600" prefHeight="400" stylesheets="@../css/auth/style.css">
+    <children>
+        <ProgressIndicator fx:id="loader" layoutX="275.0" layoutY="150.0" prefHeight="50.0" prefWidth="50.0" />
+        <Label fx:id="loadingText" layoutX="180.0" layoutY="250.0" prefWidth="250.0" alignment="center"
+               styleClass="loading-label" text="Chargement de l'application... Veuillez patienter" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      spacing="25" alignment="TOP_CENTER"
+      fx:controller="com.example.miageholding.controllers.responsablelogistique.AssuranceController"
+      stylesheets="@../../css/theme.css, @../../css/main.css"
+      styleClass="page">
+
+   <padding>
+      <Insets top="20" right="20" bottom="20" left="20"/>
+   </padding>
+
+   <!-- Titre -->
+   <Label text="🛡️ Gestion des Assurances"
+          styleClass="title-page"/>
+
+   <!-- Formulaire d'ajout -->
+   <GridPane hgap="30" vgap="15">
+      <columnConstraints>
+         <ColumnConstraints percentWidth="20"/>
+         <ColumnConstraints percentWidth="30"/>
+         <ColumnConstraints percentWidth="20"/>
+         <ColumnConstraints percentWidth="30"/>
+      </columnConstraints>
+
+      <!-- Colonne 1 -->
+      <Label text="N° Carte Assurance :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+      <TextField fx:id="textNumCarte" promptText="1001" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+      <Label text="Immatriculation Véhicule :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+      <TextField fx:id="textImmatriculation" promptText="AB-123-CD" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+      <Label text="Date Début :" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+      <DatePicker fx:id="dateDebut" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+      <Label text="Date Fin :" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+      <DatePicker fx:id="dateFin" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+      <!-- Colonne 2 -->
+      <Label text="Agence :" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+      <TextField fx:id="textAgence" promptText="NSIA" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+      <Label text="Coût (FCFA) :" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+      <TextField fx:id="textCout" promptText="30000" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+   </GridPane>
+
+   <!-- Barre de recherche -->
+   <HBox spacing="10" alignment="CENTER_LEFT">
+      <Label text="🔍 Rechercher :" styleClass="label"/>
+      <TextField fx:id="textRecherche" promptText="Par agence, carte ou immatriculation" prefWidth="320"/>
+   </HBox>
+
+   <!-- Table des assurances -->
+   <TableView fx:id="tableAssurance" VBox.vgrow="ALWAYS">
+      <columns>
+         <TableColumn fx:id="colNumCarte" text="N° Carte" prefWidth="100"/>
+         <TableColumn fx:id="colImmatriculation" text="Immatriculation" prefWidth="150"/>
+         <TableColumn fx:id="colDateDebut" text="Date Début" prefWidth="130"/>
+         <TableColumn fx:id="colDateFin" text="Date Fin" prefWidth="130"/>
+         <TableColumn fx:id="colAgence" text="Agence" prefWidth="180"/>
+         <TableColumn fx:id="colCout" text="Coût (FCFA)" prefWidth="130"/>
+      </columns>
+   </TableView>
+
+   <!-- Boutons d'action -->
+   <HBox spacing="15" alignment="CENTER">
+      <Button fx:id="btnAjouter" text="Ajouter" onAction="#handleAjouterAssurance" styleClass="btn-success"/>
+      <Button fx:id="btnModifier" text="Modifier" onAction="#handleModifierAssurance" styleClass="btn-warning"/>
+      <Button fx:id="btnSupprimer" text="Supprimer" onAction="#handleSupprimerAssurance" styleClass="btn-danger"/>
+      <Button fx:id="btnClear" text="Vider" onAction="#handleClearForm" styleClass="btn-neutral"/>
+   </HBox>
+
+</VBox>

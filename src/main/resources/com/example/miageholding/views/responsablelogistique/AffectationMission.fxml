@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.miageholding.controllers.responsablelogistique.AffectationMissionController"
+            stylesheets="@../../css/theme.css, @../../css/main.css"
+            styleClass="page">
+
+   <top>
+      <VBox spacing="20" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets top="20" right="20" bottom="10" left="20"/>
+         </padding>
+
+         <Label text="🧭 Attribution de Mission"
+                styleClass="title-page"/>
+
+         <GridPane hgap="30" vgap="15">
+            <columnConstraints>
+               <ColumnConstraints percentWidth="25"/>
+               <ColumnConstraints percentWidth="75"/>
+            </columnConstraints>
+
+            <Label text="👤 Personnel :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="comboPersonnel" promptText="Choisir un personnel"
+                      GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="300"/>
+
+            <Label text="📌 Mission :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="comboMission" promptText="Choisir une mission"
+                      GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="300"/>
+         </GridPane>
+
+         <HBox spacing="10" alignment="CENTER">
+            <Button fx:id="btnAttribuer" text="Attribuer"
+                    onAction="#handleAttribuer"
+                    styleClass="btn-success"/>
+         </HBox>
+      </VBox>
+   </top>
+
+   <center>
+      <VBox spacing="15" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets top="10" right="20" bottom="20" left="20"/>
+         </padding>
+
+         <Label text="📋 Liste des Attributions"
+                styleClass="title-page"/>
+
+         <TableView fx:id="tableAffectations" VBox.vgrow="ALWAYS">
+            <columns>
+               <TableColumn fx:id="colPersonnel" text="👤 Personnel" prefWidth="250"/>
+               <TableColumn fx:id="colMission" text="📌 Mission" prefWidth="250"/>
+            </columns>
+         </TableView>
+      </VBox>
+   </center>
+
+</BorderPane>
